@@ -1,0 +1,21 @@
+$display-flex: flex;
+.header-container{
+    display: $display-flex;
+    justify-content: space-between;
+    align-items: center;
+    a{
+        color: #D9D5F2;
+    }
+    .logo-text{
+        display: flex;
+        align-items: center;
+        img{
+            width: 50px;
+        }
+    }
+    .header-center{
+        display: $display-flex;
+        gap: 30px;
+    }
+    
+}

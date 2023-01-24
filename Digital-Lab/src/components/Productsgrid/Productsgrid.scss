@@ -1,0 +1,16 @@
+h2{
+    margin: 0;
+    text-align: center;
+}
+.products-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    .product-btn-group{
+            display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    }
+}
