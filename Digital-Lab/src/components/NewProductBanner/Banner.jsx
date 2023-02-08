@@ -1,22 +1,41 @@
 import React from 'react'
 import img from "./dashimg.webp";
 import "./Banner.scss";
+import { Swiper , SwiperSlide } from 'swiper/react';
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css";
+import { Autoplay, Navigation, Pagination } from 'swiper';
+import ImageWithText from '../ImageWithText/ImageWithText';
+import slides from "../../helper/Slides";
 
-function Banner() {
+function Banner(props) {
+  const announcement = props.announcement;
+
   return (
-    <div className="banner-container">
-      <div className="banner-context">
-        <button>Coming Soon</button>
-        <h2>all-in-one e-commerce store</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy
-        </p>
-      </div>
-      <div className="banner-img">
-        <img src={img} alt="banner-img" />
-      </div>
-    </div>
+    <Swiper
+      slidesPerView={1}
+      spaceBetween={30}
+      loop={true}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      // autoplay={{
+      //   delay: 2500
+      // }}
+      modules={[Pagination, Navigation, Autoplay]}
+    >
+        {
+          slides.map((slide) => {
+            return (
+              <SwiperSlide key={slide.id}>
+                <ImageWithText data={slide} />
+              </SwiperSlide>
+            );
+          })
+        }
+    </Swiper>
   );
 }
 

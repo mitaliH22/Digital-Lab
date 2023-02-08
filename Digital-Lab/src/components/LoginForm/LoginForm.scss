@@ -1,0 +1,21 @@
+.login-container{
+    display: flex;
+    justify-content: space-between;
+    .login-img{
+        width: 50%;
+        img{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    .login-form-details{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        input{
+            padding:10px;
+            border-radius: 6px;
+        }
+    }
+
+}

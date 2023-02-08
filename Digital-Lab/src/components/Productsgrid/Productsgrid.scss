@@ -1,16 +1,14 @@
-h2{
-    margin: 0;
-    text-align: center;
-}
 .products-container{
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    // justify-content: center;
+    column-gap: 20px;
+    row-gap: 100px;
     padding: 2rem 0;
     flex-wrap: wrap;
     .product-btn-group{
-            display: flex;
-    width: 100%;
+    display: flex;
     justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
     }
 }

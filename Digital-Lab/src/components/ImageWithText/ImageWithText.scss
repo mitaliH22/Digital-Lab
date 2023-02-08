@@ -1,0 +1,17 @@
+.img-with-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .text-container{
+        flex-basis: 500px;
+        p{
+            line-height: 2;
+        }
+    }
+    .img-container{
+        flex-basis: auto;
+        img{
+            max-width: 100%;
+        }
+    }
+}

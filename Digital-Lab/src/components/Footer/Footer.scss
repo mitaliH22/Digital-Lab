@@ -1,0 +1,40 @@
+$display-flex: flex;
+footer{
+    display: $display-flex;
+    justify-content: space-around;
+    // border-top:  1px solid;
+    .footer-container-left{
+        display: $display-flex;
+        flex-direction: column;
+        .footer-bottom{
+            display: $display-flex;
+            gap: 80px;
+            padding: 20px 0;
+        ul{
+            list-style-type: none;
+            padding: 0;
+            li{
+                color: #D9D5F2;
+            }
+        }
+        }
+    }
+    .footer-right{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    p{
+        margin: 0;
+    }
+    h2{
+        margin: 20px 0;
+        font-size: 2rem;
+    }
+    input{
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1rem;
+    }
+    }
+}

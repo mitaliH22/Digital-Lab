@@ -1,0 +1,20 @@
+.collection-wrapper{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    // flex-direction: column;
+    .collection-card{
+    flex-grow: 1;  
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 16px;
+    .collection-card-data{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
+    p{
+      text-transform: uppercase;
+    }
+}
+}

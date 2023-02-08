@@ -6,13 +6,15 @@
         text-transform: capitalize;
     }
     .banner-img{
+        width: 650px;
         img{
             max-width: 100%;
-            width: 90%;
-            border-radius: 50px;
+            // border-radius: 50px;
         }
     }
     .banner-context{
-        text-align: center;
+        button{
+            margin: 20px 0;
+        }
     }
 }

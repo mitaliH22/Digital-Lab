@@ -5,17 +5,20 @@ import logo from "./logo.png";
 
 function Header() {
   return (
-    <nav className="header-container">
-      <Link>
+    <nav className="header-container container">
+      <Link to="/">
         <span className="logo-text">
           <img src={logo} alt="logo" className="header-logo" /> Digital-Lab
         </span>
       </Link>
       <div className="header-center">
-        <Link>Products</Link>
-        <Link>About us</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/collection">Collection</Link>
       </div>
-      <Link>LogIn</Link>
+      <div className="header-center">
+        <Link>Cart</Link>
+        <Link to='/login'>My Profile</Link>
+      </div>
     </nav>
   );
 }

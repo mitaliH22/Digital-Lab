@@ -1,5 +1,6 @@
 $display-flex: flex;
 .header-container{
+    padding: 0!important;
     display: $display-flex;
     justify-content: space-between;
     align-items: center;
@@ -17,5 +18,4 @@ $display-flex: flex;
         display: $display-flex;
         gap: 30px;
     }
-    
 }

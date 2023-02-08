@@ -1,0 +1,20 @@
+.product-desc{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0px;
+    .product-images{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        img{
+            width: 200px;
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+    .product-btn-group{ 
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    }
+}
