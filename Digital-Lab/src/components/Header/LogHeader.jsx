@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import logo from "./logo.png";
 
-function Header() {
-
-
+function LogHeader() {
   return (
     <nav className="header-container container">
       <Link to="/">
@@ -19,11 +17,11 @@ function Header() {
       </div>
       <div className="header-center">
         <Link>Cart</Link>
-        <Link to="/login">Login</Link>
-        {/* <Link to='/users'>My Profile</Link> */}
+        <Link>My Orders</Link>
+        <Link to="/users">My Profile</Link>
       </div>
     </nav>
   );
 }
 
-export default Header
+export default LogHeader;

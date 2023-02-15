@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import img from "../assets/login.webp"
-import axios from "axios";
 import LoginForm from "../components/LoginForm/LoginForm";
 
+
 function LogInPage(){
+
     return (
-      <div className="login-container container">
-        <div className="login-img">
-          <img src={img} alt="Login" />
+      <>
+        <div className="login-container container">
+          {/* <div className="login-img">
+            <img src={img} alt="Login" />
+          </div> */}
+          <LoginForm />
         </div>
-        <LoginForm />
-      
-      </div>
+      </>
     );
 }
 

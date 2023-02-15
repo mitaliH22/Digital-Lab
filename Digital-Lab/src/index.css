@@ -32,6 +32,7 @@ h1 {
 }
 
 button {
+  color: white;
   border-radius: 8px;
   border: 1px solid white;
   padding: 0.4em 1.2em;
@@ -51,16 +52,16 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  /* :root {
     color: #213547;
     background-color: #ffffff;
-  }
+  } */
   a:hover {
     color: #747bff;
   }
-  button {
+  /* button {
     background-color: #f9f9f9;
-  }
+  } */
 }
 
 .container{

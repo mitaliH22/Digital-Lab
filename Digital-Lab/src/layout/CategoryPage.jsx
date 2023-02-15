@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header/Header'
 import ProductCard from "../components/ProductCard/ProductCard";
+import Layout from './Layout';
 
 function CategoryPage(props) {
   const params = useParams();
@@ -17,14 +18,15 @@ function CategoryPage(props) {
   
 
   return (
-    <div>
-      <Header />
-      <div className="cat-container container">
-        {categoryName.map((item) => {
-          return <ProductCard item={item}/>
-        })}
+    <Layout>
+      <div>
+        <div className="cat-container container">
+          {categoryName.map((item) => {
+            return <ProductCard item={item} />;
+          })}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

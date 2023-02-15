@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
@@ -8,10 +8,12 @@ import axios from "axios";
 axios.defaults.baseURL = "https://dummyjson.com";
 
 
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+        <App />
     </BrowserRouter>
   </React.StrictMode>
 );

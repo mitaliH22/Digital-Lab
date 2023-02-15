@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
@@ -10,6 +10,11 @@ import AllProducts from "./layout/AllProducts";
 import CollectionPage from "./layout/CollectionPage";
 import CategoryPage from "./layout/CategoryPage";
 import LogInPage from "./layout/LogInPage";
+import UserProfile from "./layout/UserProfile";
+import reducer from "../src/helper/reducer";
+import { UserContext } from "../src/context";
+
+
 
 function App() {
   const [product, setproduct] = useState([]);
@@ -26,30 +31,36 @@ function App() {
     })
   }
 
+  const initialState = {
+    authorization: false,
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard product={product} />}></Route>
-      <Route
-        path="/product/:id"
-        element={
-          <ProductPage
-            product={product}
-            getSingleProduct={getSingleProduct}
-            singleProduct={singleProduct}
-          />
-        }
-      ></Route>
-      <Route path="/products" element={<AllProducts product={product} />} />
-      <Route
-        path="/collection"
-        element={<CollectionPage product={product} />}
-      />
-      <Route
-        path="/collection/:catName"
-        element={<CategoryPage />}
-      />
-      <Route path="/login" element={<LogInPage />}/>
-    </Routes>
+    <UserContext.Provider value={{ state: state, dispatch: dispatch }}>
+      <Routes>
+        <Route exact path="/" element={<Dashboard product={product} />}></Route>
+        <Route
+          path="/product/:id"
+          element={
+            <ProductPage
+              product={product}
+              getSingleProduct={getSingleProduct}
+              singleProduct={singleProduct}
+            />
+          }
+        ></Route>
+        <Route path="/products" element={<AllProducts product={product} />} />
+        <Route
+          path="/collection"
+          element={<CollectionPage product={product} />}
+        />
+        <Route path="/collection/:catName" element={<CategoryPage />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route exact path="/users" element={<UserProfile />} />
+      </Routes>
+    </UserContext.Provider>
   );
 }
 

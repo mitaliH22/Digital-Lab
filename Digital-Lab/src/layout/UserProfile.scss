@@ -1,0 +1,19 @@
+.user-wrapper{
+    padding: 50px 0 !important;
+.user-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .user-data-container{
+    span{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .user-img{
+        background-color: #D9D5F2;
+        border-radius: 50px;
+    }
+    
+}
+}
