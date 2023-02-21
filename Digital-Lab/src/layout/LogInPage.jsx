@@ -8,10 +8,10 @@ function LogInPage(){
     return (
       <>
         <div className="login-container container">
-          {/* <div className="login-img">
-            <img src={img} alt="Login" />
-          </div> */}
           <LoginForm />
+          <div className="login-img">
+            <img src={img} alt="Login" />
+          </div>
         </div>
       </>
     );

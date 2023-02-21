@@ -26,7 +26,6 @@ function CollectionPage(props) {
     useEffect(()=>{
       axios.get("/products/categories").then(function(data){
         setCat(data.data);
-        console.log(cat,"jiojoi");
       })
     },[])
 
@@ -35,13 +34,6 @@ function CollectionPage(props) {
       <div>
         <div className="container">
           <h2>Collection Page</h2>
-          {/* <div className="collection-wrapper">
-          {result.map((item, index) => {
-            return (
-                <CollectionCard data={item} />
-            );
-          })}
-        </div> */}
         </div>
         <div className="container">
           <div className="collection-wrapper">

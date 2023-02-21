@@ -1,0 +1,29 @@
+.cart{
+    h2{
+        text-align: center;
+    }
+    .cart-items-heading{
+        padding-bottom: 0!important;
+    }
+    .table-row{
+        display: grid;
+        grid-template-columns: 2fr 0.5fr 0.75fr 0.5fr ;
+        padding: 20px 0;
+        border-bottom: 1px solid #D9D5F2;
+        li{
+        list-style-type: none;
+    }
+    .counter{
+        display: flex;
+        gap: 10px;
+        input{
+            width: 50px;
+            text-align: center;
+        }
+    }
+    }
+    .cart-total{
+        text-align: end;
+        padding: 20px 0;
+    }
+}

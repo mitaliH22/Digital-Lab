@@ -12,6 +12,22 @@
             object-fit: contain;
         }
     }
+    .product-price{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        pre{
+            border: 1px solid #646cff;
+            border-radius: 16px;
+            padding: 5px 10px;
+            i{
+            background: #9f93ec;
+            padding: 2px 5px;
+            margin-right: 10px;
+            border-radius: 50px;
+            }
+        }
+    }
     .product-btn-group{ 
     display: flex;
     justify-content: flex-start;

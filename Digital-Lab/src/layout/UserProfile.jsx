@@ -3,36 +3,35 @@ import { useNavigate } from "react-router-dom";
 import "./UserProfile.scss";
 import { Link } from 'react-router-dom';
 import Layout from './Layout';
-import { UserContext } from '../context';
+import { authContext } from '../context/auth';
+import { useCookies } from "react-cookie";
+
 
 function UserProfile() {
-   const [content, setContent] = useState([]);
-   const [authentication, setAuthentication] = useState(
-     localStorage.getItem("authenticated")
-   );
-
     const Navigate = useNavigate();
-    const userContext = useContext(UserContext);
+    const auth = authContext();
 
-  const logout = (e) =>{
-    userContext.dispatch({
-      type: "LOGGED_OUT",
-      payload: false,
-    });
-    window.localStorage.clear();
+
+  const logoutt = (e) =>{
+    auth.logout();
+    // userContext.dispatch({
+    //   type: "LOGGED_OUT",
+    //   payload: false,
+    // });
     Navigate('/');
   }
 
-  return (
-    <Layout>
-      <div>
-        <div className="user-wrapper container">
-          <span>
-            <h2>Welcome Back , {content.firstName}</h2>
-            <h3>My Profile</h3>
-            <button onClick={(e) => logout(e)}>LogOut</button>
-          </span>
-          {/* <div className="user-data">
+    return (
+      <Layout>
+        <div>
+          <div className="user-wrapper container">
+            <span>
+    
+              <h2>Welcome Back </h2>
+              <h3>My Profile</h3>
+              <button onClick={(e) => logoutt(e)}>LogOut</button>
+            </span>
+            {/* <div className="user-data">
           <div className="user-data-container">
             <span>
               <label>First Name - </label>
@@ -54,11 +53,11 @@ function UserProfile() {
           <div className="user-img">
             <img src={content.image} alt="user" />
           </div>
-        </div> */}
+    </div> */}
+          </div>
         </div>
-      </div>
-    </Layout>
-  );
-}
+      </Layout>
+    );
+  }
 
 export default UserProfile

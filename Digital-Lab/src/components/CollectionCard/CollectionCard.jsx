@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import "./CollectionCard.scss";
 
 function CollectionCard(props) {
-    console.log(props.item);
-  
+
   return (
     <div className="collection-card">
       <span className="collection-card-data">

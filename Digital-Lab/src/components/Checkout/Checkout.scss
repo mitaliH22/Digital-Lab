@@ -1,0 +1,58 @@
+.checkout-wrapper{
+    display: flex;
+    justify-content: space-between;
+    .checkout-container{
+        &:nth-child(1){
+            flex:2;
+        }
+        &:nth-child(2){
+            flex: 1;
+            border: 1px solid #646cff;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .checkout-details{
+            .contact-info{
+                display: flex;
+                gap: 50px;
+                padding: 10px 0;
+                span{
+                    display: flex;
+                    gap: 10px;
+                    input{
+                        padding: 5px;
+                        border: none;
+                    }
+                }
+            }
+        }
+        .checkout-delivery-details{
+                .different-methods ,.different-payment-methods{
+                    display: flex;
+                    gap: 20px;
+                    .active{
+                        background-color: #D9D5F2;
+                        color: black;
+                    }
+                }
+                input{
+                    padding:5px;
+                    border: none;
+                }
+            }
+    .checkout-total{
+        display: flex;
+        flex-direction: column;
+        span{
+            display: flex;
+            justify-content: space-between;
+        }
+        .checkout-payment{
+            padding: 15px;
+        }
+    }
+    .checkout-items{
+        text-align: center;
+    }        
+    }
+}

@@ -1,35 +1,55 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , useState } from 'react'
 import { useParams } from 'react-router-dom';
+import Quantity from '../Quantity/Quantity';
 import "./ProductDesc.scss";
+import MiniCart from "../MiniCart/MiniCart";
 
 function ProductDesc(props) {
   const { id } = useParams();
   var product = props.singleProduct;
+  const [ demo , setDemo ] = useState(false);
+
    
   useEffect(() => {
     props.getSingleProduct(id);
   }, []);
+
+  const minicart = () =>{
+    setDemo(!demo);
+    console.log(product);
+  }
+
   return (
-    <div className="product-desc">
-      <div>
-        <img src={product.thumbnail} alt="" />
-        {/* <div className="product-images">
+    <>
+      <div className="product-desc container">
+        <div>
+          <img src={product.thumbnail} alt="" />
+          {/* <div className="product-images">
           <img src={product.images[2]} alt="firstimg" />
           <img src={product.images[3]} alt="secondimg" />
         </div> */}
-      </div>
-      <div className="product-data">
-        <div className="product-content">
-          <h1>{product.title}</h1>
-          <p>${product.price}</p>
-          <p>{product.description}</p>
         </div>
-        <div className="product-btn-group">
-          <button>Add to Cart</button>
-          <button>Buy Now</button>
+        <div className="product-data">
+          <div className="product-content">
+            <h1>{product.title}</h1>
+            <span className="product-price">
+              <pre>
+                <i class="bi bi-percent"></i>
+                {product.discountPercentage}
+              </pre>
+              <h3>${product.price}</h3>
+            </span>
+            <p>{product.description}</p>
+          </div>
+          <Quantity />
+          <div className="product-btn-group">
+            <button onClick={minicart}>Add to Cart</button>
+            <button>Buy Now</button>
+          </div>
         </div>
       </div>
-    </div>
+      <MiniCart value={demo} product={product} />
+    </>
   );
 }
 

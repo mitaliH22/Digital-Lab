@@ -1,12 +1,13 @@
 .login-container{
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    padding-top: 22vh!important;
     .login-img{
         width: 50%;
         img{
             width: 100%;
             max-width: 100%;
+            border-radius: 50px;
         }
     }
     .login-form-details{

@@ -4,16 +4,16 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
+import { CookiesProvider } from 'react-cookie';
 
 axios.defaults.baseURL = "https://dummyjson.com";
 
-
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
         <App />
-    </BrowserRouter>
+      </BrowserRouter>
+    </CookiesProvider>
   </React.StrictMode>
 );

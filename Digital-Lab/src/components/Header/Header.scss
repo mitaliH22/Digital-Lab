@@ -16,6 +16,13 @@ $display-flex: flex;
     }
     .header-center{
         display: $display-flex;
+        align-items: center;
         gap: 30px;
+        .logout{
+            border: none;
+            color: #D9D5F2;
+            font-weight: 500;
+            text-decoration: inherit;
+        }
     }
 }

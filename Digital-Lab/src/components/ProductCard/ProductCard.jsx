@@ -1,10 +1,31 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useContext, useState } from 'react'
 import { Link } from "react-router-dom";
+import { UserContext } from '../../context';
+import { authContext } from '../../context/auth';
 import "./Product.scss";
 
 function ProductCard(props) {
+  const auth = authContext();
     const addCart = () =>{
-        alert("Item Added to cart")
+        axios
+          .post("carts/add", {
+            userId: auth.user.id,
+            products: [
+              {
+                id: props.item.id,
+                quantity: 1,
+              },
+            ],
+          })
+          .then((response) => {
+            // console.log(props.item,"item")
+            console.log(response.data,"crt");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+           
     }
   return (
     <div className="productCard">
@@ -15,7 +36,7 @@ function ProductCard(props) {
       </span>
       {/* <p className="product-description">{props.item.description}</p> */}
       <div className="product-btn-group">
-        <button onClick={addCart}>+</button>
+        {auth.user && <button onClick={addCart}>+</button>}
         <Link to={`/product/${props.item.id}`}>View</Link>
       </div>
     </div>

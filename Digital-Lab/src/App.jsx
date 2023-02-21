@@ -4,15 +4,18 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./layout/Dashboard";
-import Header from "./components/Header/Header";
 import ProductPage from "./layout/ProductPage";
 import AllProducts from "./layout/AllProducts";
 import CollectionPage from "./layout/CollectionPage";
 import CategoryPage from "./layout/CategoryPage";
 import LogInPage from "./layout/LogInPage";
 import UserProfile from "./layout/UserProfile";
-import reducer from "../src/helper/reducer";
-import { UserContext } from "../src/context";
+// import reducer from "../src/helper/reducer";
+// import { UserContext } from "../src/context";
+import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
+import { AuthProvider } from "./context/auth";
+import RequiredAuth from "./components/RequiredAuth";
 
 
 
@@ -31,14 +34,15 @@ function App() {
     })
   }
 
-  const initialState = {
-    authorization: false,
-  };
+  // const initialState = {
+  //   authorization: false,
+  // };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <UserContext.Provider value={{ state: state, dispatch: dispatch }}>
+    <AuthProvider>
+      {/* <UserContext.Provider value={{ state: state, dispatch: dispatch }}> */}
       <Routes>
         <Route exact path="/" element={<Dashboard product={product} />}></Route>
         <Route
@@ -58,9 +62,34 @@ function App() {
         />
         <Route path="/collection/:catName" element={<CategoryPage />} />
         <Route path="/login" element={<LogInPage />} />
-        <Route exact path="/users" element={<UserProfile />} />
+        <Route
+          exact
+          path="/users"
+          element={
+            <RequiredAuth>
+              <UserProfile />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <RequiredAuth>
+              <Cart />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequiredAuth>
+              <Checkout />
+            </RequiredAuth>
+          }
+        />
       </Routes>
-    </UserContext.Provider>
+      {/* </UserContext.Provider> */}
+    </AuthProvider>
   );
 }
 
