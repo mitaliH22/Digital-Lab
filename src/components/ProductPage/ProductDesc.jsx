@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import Quantity from '../Quantity/Quantity';
 import "./ProductDesc.scss";
 import MiniCart from "../MiniCart/MiniCart";
+import { authContext } from '../../context/auth';
 
 function ProductDesc(props) {
   const { id } = useParams();
   var product = props.singleProduct;
   const [ demo , setDemo ] = useState(false);
-
+  const auth = authContext();
    
   useEffect(() => {
     props.getSingleProduct(id);
@@ -41,11 +42,13 @@ function ProductDesc(props) {
             </span>
             <p>{product.description}</p>
           </div>
-          <Quantity />
-          <div className="product-btn-group">
-            <button onClick={minicart}>Add to Cart</button>
-            <button>Buy Now</button>
-          </div>
+          {auth.user && <Quantity />}
+          {auth.user && (
+            <div className="product-btn-group">
+              <button onClick={minicart}>Add to Cart</button>
+              <button>Buy Now</button>
+            </div>
+          )}
         </div>
       </div>
       <MiniCart value={demo} product={product} />

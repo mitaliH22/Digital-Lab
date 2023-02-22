@@ -21,39 +21,39 @@ function UserProfile() {
     Navigate('/');
   }
 
+  const user = auth.user;
     return (
       <Layout>
         <div>
           <div className="user-wrapper container">
             <span>
-    
-              <h2>Welcome Back </h2>
+              <h2>Welcome Back , {user.firstName} </h2>
               <h3>My Profile</h3>
               <button onClick={(e) => logoutt(e)}>LogOut</button>
             </span>
-            {/* <div className="user-data">
+            <div className="user-data">
           <div className="user-data-container">
             <span>
               <label>First Name - </label>
-              <p>{content.firstName}</p>
+              <p>{user.firstName}</p>
             </span>
             <span>
               <label>Last Name - </label>
-              <p>{content.lastName}</p>
+              <p>{user.lastName}</p>
             </span>
             <span>
               <label>Email - </label>
-              <p>{content.email}</p>
+              <p>{user.email}</p>
             </span>
             <span>
               <label>Gender - </label>
-              <p>{content.gender}</p>
+              <p>{user.gender}</p>
             </span>
           </div>
           <div className="user-img">
-            <img src={content.image} alt="user" />
+            <img src={user.image} alt="user" />
           </div>
-    </div> */}
+    </div>
           </div>
         </div>
       </Layout>
